@@ -51,11 +51,16 @@ module.exports = {
     b: './src/b.js',
     c: './src/c.js'
   },
+  
+  output: {
+    filename: '[name]/[name].[contenthash].bundle.js'
+  },
 
   plugins: [
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({ filename:'[name].[chunkhash].css' })
-    //new StatsWriterPlugin()
+    new StatsWriterPlugin({
+      fields: ['entrypoints']
+    })
   ],
 
   module: {
@@ -67,7 +72,6 @@ module.exports = {
       test: /.css$/,
 
       use: [
-        MiniCssExtractPlugin.loader,
         {
           loader: "css-loader",
 
