@@ -54,8 +54,8 @@ module.exports = {
 
   plugins: [
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({ filename:'[name].[chunkhash].css' })
-    //new StatsWriterPlugin()
+    new MiniCssExtractPlugin({ filename:'[name].[chunkhash].css' }),
+    new StatsWriterPlugin()
   ],
 
   module: {
